@@ -1,30 +1,8 @@
 
-
-
-
-if (testeGeral != null) {
-    testeGeral.innerHTML = "Localizado";
-}
-
-const op2 = document.querySelector("body > app-root > table > tr:nth-child(2) > td:nth-child(2) > div > input[type=text]")
-if (op2 != null) {
-    op2.value = "foi alterado";
-}
-
-
+// configura o listener para o evento de mudança na página
 const targetNode = document.getElementsByTagName("body")[0];
 const config = { attributes: true, childList: true, subtree: true };
 const callback = (mutationList, observer) => {
-    // for (const mutation of mutationList) {
-    //   if (mutation.type === 'childList') {
-    //     if (mutation.addedNodes.length > 0) {
-
-    //     }
-    //     console.log('A child node has been added or removed.',mutation);
-    //   } else if (mutation.type === 'attributes') {
-    //     console.log(`The ${mutation.attributeName} attribute was modified.`);
-    //   }
-    // }
     const ipt2 = document.getElementById("ipt2");
     const btn = document.getElementById("btnInserido");
     if (ipt2 != null && btn == null) {
@@ -54,6 +32,7 @@ function consultaAPI(elemento){
     .then(response => response.json())
     .then(data => {
         elemento.value = data.valor;
+        // dispara o evento de input para que o angular atualize o valor do campo
         var event = new Event('input');
         elemento.dispatchEvent(event);
     })
