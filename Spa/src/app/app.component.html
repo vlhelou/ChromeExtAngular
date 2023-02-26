@@ -1,0 +1,39 @@
+<table style="border: solid 1px black;">
+    <tr>
+        <th>Opção</th>
+        <th>Resultado</th>
+    </tr>
+    <tr>
+        <td>
+            opção<br>
+            <label>
+                Escolha 1
+                <input type="radio" [value]="1" [(ngModel)]="opcao">
+            </label><br>
+            <label>
+                Escolha 2
+                <input type="radio" [value]="2" [(ngModel)]="opcao">
+            </label><br>
+            <label>
+                Escolha 3
+                <input type="radio" [value]="3" [(ngModel)]="opcao">
+            </label><br>
+
+        </td>
+        <td style="border: solid 1px black; text-align: center; vertical-align: middle;" >
+            <div *ngIf="opcao===1">
+                opção 1 escolhida
+            </div>
+            <div *ngIf="opcao===2">
+                opção 2 escolhida <br>
+                <input type="text" [(ngModel)]="valor2" id="ipt2">
+            </div>
+            <div *ngIf="opcao===3">
+                opção 3 escolhida <br>
+                <input type="text" [(ngModel)]="valor3" id="ipt3">
+            </div>
+
+        </td>
+    </tr>
+</table>
+
